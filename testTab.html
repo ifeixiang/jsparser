@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>一个tab面板</title>
+</head>
+<body>
+<div id="tab">
+  <div class="menu">
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+  </div>
+  <div class="tabContentWrapper">
+    <div>这里是Tab1的内容</div>
+    <div>这里是Tab2的内容</div>
+    <div>这里是Tab3的内容</div>
+    <div>这里是Tab4的内容</div>
+  </div>
+</div>
+<!--使用google cdn的js库-->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+	google.load("jquery", "1.3.2");
+</script>
+
+<script type="text/javascript">	
+	//等待jquery库加载完
+	google.setOnLoadCallback(
+		//tab的基本实现
+		function(){
+			//先将其他菜单 内容 隐藏
+  			$(".tabContentWrapper div:not(:first)").hide();
+			//注册菜单的点击事件
+   			$(".menu li").each(function(index){
+      		 $(this).click(
+	   			  function(){
+					  //先设置菜单current
+					  $(".menuCurrent").removeClass("menuCurrent");
+					  $(this).addClass("menuCurrent");
+					  //再显示内容
+					  $(".tabContentWrapper div:not(index)").hide();
+					  $(".tabContentWrapper div:eq(" + index + ")").fadeIn();
+	 			 });
+  		 	});
+		});
+</script>
+
+<style type="text/css">
+	.menu{
+		width:200px;
+		float:left;
+	}
+	.menu li
+	{
+		display:block;
+		width:100px;
+		text-align:center;
+		background:#999999;
+		margin:4px 10px;
+		list-style-type:none;
+	}
+	.menuCurrent{
+		color:red;
+	}
+</style>
+
+</body>
+</html>

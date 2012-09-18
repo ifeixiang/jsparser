@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>A css3 navigation</title>
+<link rel="stylesheet" href="css/style.css" />
+<meta name="generator" content="http://switchtohtml5.com">
+</head>
+<style type="text/css">
+.maskDiv {
+	display:none;
+	position:absolute;
+	color:#113048;
+	z-index:100;
+	/*居中代码*/
+	left:50%;
+	top:50%;
+	width:900px;
+	height:700px;
+	margin:-350px 0 0 -450px;
+	background-color:#fff;
+	/*使用box-shadow来模拟遮罩层*/
+	box-shadow:0 0 0 2000px rgba(0,0,0,.7);
+	font-weight:bold;
+}
+.maskDiv img {
+	max-width:900px;
+	max-height:600px;
+}
+.menuAbsRight {
+	position:absolute;
+	right:0;
+	top:0;
+	width:146px;
+	height:100%;
+	z-index:2;
+	margin:0;
+	background:rgba(17,48,72,.4);
+	text-shadow:1px 1px 1px rgba(0,0,0,.2);
+}
+.menuAbsRight ul {
+	position:absolute;
+	right:10px;
+	top:66px;
+	list-style-type:none;
+	width:110px;
+}
+.menuAbsRight li {
+	background:url(images/menubg.png);
+	height:42px;
+	width:105px;
+	margin:12px 20px 0 0;
+	text-align:center;
+	padding-top:8px;
+	cursor:pointer;
+}
+.menuAbsRight li span {
+	display:block;
+	font-size:12px;
+}
+.menuAbsRight li:hover {
+	background-position:0 -50px;
+}
+.menuAbsRight .current {
+	-webkit-animation:animations2 .5s ease-in-out;
+	background-position:0 -50px;
+}
+@-webkit-keyframes animations2 {
+ 0% {
+opacity:1;
+}
+ 20% {
+opacity:.6;
+}
+ 40% {
+opacity:.2;
+}
+ 100% {
+opacity:1;
+}
+}
+.productDetail {
+	position:absolute;
+	height:325px;
+	width:525px;
+	color:#113048;
+	/*居中代码*/
+	left:110px;
+	top:100px;
+	background:rgba(255,255,255,.8);
+	text-align:center;
+	display:none;
+	-webkit-border-radius:20px;
+	-webkit-box-shadow:0 0 50px rgba(0,0,0,.5)
+}
+.productDetail h1 {
+	text-align:left;
+	border-bottom:1px solid #113048;
+	margin:20px 50px;
+}
+.alignRight{text-align:right;}
+</style>
+<script language="javascript" type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script>
+	$(document).ready(function(e) {
+    	$('.imgSource img').click(function()
+			{
+				$('.maskDiv').fadeIn();
+			}
+		); 
+		$('.menuAbsRight li').each(function(index, element) {
+            $(this).click(function(e) {
+                $('.menuAbsRight .current').removeClass('current');
+				$(this).addClass('current');
+            });
+        }); 
+		var isClick = false ;
+		$('.maskDiv img').click(function()
+			{
+				if( !isClick )
+				{
+						$('.productDetail').fadeIn();
+						isClick = true ; 
+				}
+				else
+				{
+					$('.productDetail').fadeOut();
+					isClick = false ;	
+				}
+			}
+		);
+    });
+	
+</script>
+<body>
+<div class="imgSource"> <img src="images/img.jpg"/> <a>click me</a> </div>
+<div class="maskDiv"> <img src="images/ipad.jpg" />
+  <div class="productDetail">
+    <h1>产品信息</h1>
+    <table width="100%" border="0">
+      <tr>
+        <td class="alignRight">名称Name:</td>
+        <td><span id="pName">阿克乐平开门</span></td>
+      </tr>
+      <tr>
+        <td class="alignRight">型号Model:</td>
+        <td><span id="pModel">AD35PH(FG054)</span></td>
+      </tr>
+      <tr>
+        <td class="alignRight">玻璃Glass:</td>
+        <td><span id="pGlass">格条+暗花/白玻+蒙砂</span></td>
+      </tr>
+      <tr>
+        <td class="alignRight">规格Size:</td>
+        <td><span id="pSize">750x2000mm</span></td>
+      </tr>
+      <tr>
+        <td class="alignRight">单价Selling Price:</td>
+        <td><span id="pPrice">1012元/平方</span></td>
+      </tr>
+    </table>
+  </div>
+  <div class="menuAbsRight">
+    <ul>
+      <li class="current">添加到定单<span>Add to order</span></li>
+      <li>生成定单<span>Generate orders</span></li>
+      <li>查看定单<span>View orders</span></li>
+      <li>保存定单<span>Save Order</span></li>
+      <li>发送定单<span>Send an order</span></li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

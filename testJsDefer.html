@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+<script defer>
+	alert(1);
+</script>
+<script>
+	alert(2);
+</script>
+<body>
+<script defer>
+	alert(3);
+</script>
+<script async>
+	alert(4);
+</script>
+<script>
+	window.onload = function(){ alert(5);}
+</script>
+</body>
+</html>

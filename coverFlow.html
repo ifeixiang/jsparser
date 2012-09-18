@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>一个tab面板</title>
+</head>
+<body>
+<div id="tab">
+ 		<div class="wrapper">
+			<div id="coverflow">
+	            <img src="images/img.jpg" data-artist="Gorillaz" data-album="Plastic Beach"/>
+	            <img src="images/img.jpg" data-artist="Gorillaz" data-album="Plastic Beach"/>
+	            <img src="images/img.jpg" data-artist="Gorillaz" data-album="Plastic Beach"/>
+	            <img src="images/img.jpg" data-artist="Gorillaz" data-album="Plastic Beach"/>
+	            <img src="images/img.jpg" data-artist="Gorillaz" data-album="Plastic Beach"/>
+	            <img src="images/img.jpg" data-artist="Gorillaz" data-album="Plastic Beach"/>
+	            <img src="images/img.jpg" data-artist="Gorillaz" data-album="Plastic Beach"/>
+	            <img src="images/img.jpg" data-artist="Gorillaz" data-album="Plastic Beach"/>
+	            <img src="images/img.jpg" data-artist="Gorillaz" data-album="Plastic Beach"/>
+			</div>
+		</div>
+
+		<div id="imageCaption">
+		Sample Text
+		</div>
+
+
+		<div id='slider'></div>
+		
+        <div id="scroll-pane" style="display:none;">
+		    <ul id="sortable"> 
+		    </ul>
+		</div>
+        
+        
+</div>
+<!--使用google cdn的js库-->
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.9.custom.min.js"></script>
+
+<script type="text/javascript" src="js/ui.coverflow.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+
+	<link type="text/css" href="css/extra.css" rel="Stylesheet" />
+<script type="text/javascript">
+	
+</script>
+
+<style type="text/css">
+	/* UI Overrides*/
+.tab
+{
+	padding:12px;
+	font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif";
+	background:#000;
+}
+
+div.wrapper {
+	height: 450px;
+	width: 800px; /*600*/
+	padding: 10px;
+	overflow: hidden;
+	position: relative;
+	margin: 0 auto;
+	
+}
+
+#coverflow {
+	display: inline-block;
+	height: 600px;
+	width: 2600px;
+
+	padding: 42px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	margin-top: 50px;
+}
+
+#coverflow img {
+	width: 260px;
+	height: 260px;
+	float: left;
+	position: relative;
+	margin: -35px;
+	 -webkit-box-reflect: below 5px -webkit-gradient(linear, left top, left bottom, from(black), color-stop(.7, black), to(transparent));
+
+}
+
+#demo-frame {
+	overflow: hidden;
+}
+
+#slider {
+	margin-top:20px;
+	background:#bbb;
+}
+.ui-slider-handle {
+	width: 20px;
+	height: 10px;
+	margin-left: 5px;
+	background-color: darkgray;
+	display: block;
+	position: absolute
+}
+
+#sortable {
+	list-style-type: none;
+	margin: 0 auto;
+	padding: 0;
+	width: 100%;
+}
+
+#sortable li {
+	margin: 0 3px 3px 3px;
+	padding: 0.4em;
+	padding-left: 1.5em;
+	font-size: 1.4em;
+	height: 18px;
+	border:none;
+}
+
+#sortable li span {
+	position: absolute;
+	margin-left: -1.3em;
+}
+
+.ui-selected {
+
+	color: #000;
+	background: #EDA32D; /* old browsers */
+	background: -moz-linear-gradient(top, #EDA32D 0%, #F9731E 99%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#EDA32D), color-stop(99%,#F9731E)); /* webkit */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EDA32D', endColorstr='#F9731E',GradientType=0 ); /* ie */
+	border:none;
+
+
+}
+
+.pageWrapper {
+	margin: 0 auto;
+	width: 960px
+}
+
+#imageCaption {
+	margin:10px auto 0;
+	width: 400px;
+	color: #000;
+	font-family: Arial;
+	display: block;
+	font-size: 12px;
+	text-align: center;
+	
+}
+</style>
+
+</body>
+</html>

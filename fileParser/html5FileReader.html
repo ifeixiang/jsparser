@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>一个tab面板</title>
+</head>
+<body>
+  <textarea name="" id="source" ondrop="dropFile(event)" ondragenter="return false;" ondragover="return false;" ></textarea>
+ <textarea name="" id="result"></textarea>
+<script type="text/javascript" src="fileParser.js"></script>	
+<script type="text/javascript">	
+         function dropFile(e)
+		 {
+			 e.preventDefault(); 
+			 e.stopPropagation();   
+			 var file = e.dataTransfer.files[0];
+			 if( file )
+			 {
+				 readFile(file);
+			 }
+		 }
+		 function readFile(file)
+		 {
+			 var reader = new FileReader();
+			 reader.readAsText(file,"UTF-8");
+			 reader.onload = loaded ;	  
+		 }
+		 function loaded(event)
+		 {
+			 var fileString = event.target.result; 
+			 document.getElementById("source").innerHTML = fileString;
+			 
+			 parseFile(fileString,"result"); 
+		 }
+		 
+</script>
+
+<style type="text/css">
+	#source,#result
+	{
+		height:600px;
+		float:left;
+		margin:10px;
+		width:45%;
+		overflow:scroll;
+	}
+	#source
+	{
+		border:1px solid #C30;
+	}
+	#result
+	{
+		border:1px solid #0C6;
+	}
+</style>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* CSS Document */
+.joinTable
+{
+	width:530px;
+	color:#1e405a;
+}
+.joinTable,.joinTable p
+{
+	margin:5px;
+}
+
+.alignCenter
+{
+	text-align:center;
+}
+
+
+.bottomBorder
+{
+	border:none;
+	border-bottom:1px solid #1e405a;
+	padding:2px 4px;
+	width:100px;
+}
+.width200
+{
+	width:200px;
+}
+/*缩进两个字符*/
+.indent24
+{
+	margin-left:20px;
+	overflow:hidden;	
+}
+
+.green20Title,.green12title
+{
+	font-size:20px;
+	color:#8ba149;
+	font-weight:bold;
+	margin:0;
+}
+.green12title
+{
+	font-size:12px;
+}
+
+.blackInput
+{
+	border:1px solid #1e405a;
+	padding:2px;
+}
+.red
+{
+	color:red;
+}
+

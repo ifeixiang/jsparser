@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>一个tab面板</title>
+</head>
+<style type="text/css">
+	.menu{
+		width:1000px;
+		height:200px;
+		float:left;
+		background:#666;
+		position:absolute;
+		left:200px;
+		top:0;
+	}
+	.menu li
+	{
+		display:block;
+		width:100px;
+		text-align:center;
+		background:#999999;
+		margin:4px 10px;
+		list-style-type:none;
+	}
+	.menuCurrent{
+		color:red;
+	}
+	.inner
+	{
+		margin:40px;
+		width:400px;
+		height:50px;
+		background:#009999;
+	}
+	.invisibleDiv{	width:400px;
+		background:transparent;
+		height:50px;
+	}
+	
+</style>
+<body>
+<div id="tab">
+  <div class="menu">
+  <div class="invisibleDiv">
+  	<img src="a5.png" class="inner"></div>
+  </div>
+   </div>
+</div>
+<!--使用google cdn的js库--> 
+<script type="text/javascript" src="js/jquery-1.7.2.js"></script> 
+<script type="text/javascript">
+	$(document).ready(function(e) {
+        	var isMove = false ; 
+			var dx , dy ,eX , eY;
+			$(".menu").mousedown(function(event){
+				dx = event.pageX;
+				dy = event.pageY;
+			});
+			$(".menu").mousemove(function(event){
+				
+			});
+			$(".menu").mouseup(function(event){
+					//释放后的操作
+					eX = event.pageX;
+					eY = event.pageY;
+					if( (eX-dx) > 0 )
+					{
+						alert('drag right');	
+					}
+					else if( (eX-dx) < 0 )
+					{
+						alert('drag left');	
+					}
+			});
+			$(".inner").click(function(event){
+				$('.invisibleDiv').hide();
+			});
+    });	
+	
+	function initInvisibleDiv()
+	{
+			$(".invisibleDiv").mousedown(function(event){
+				dx = event.pageX;
+				dy = event.pageY;
+			});
+			$(".invisibleDiv").mouseup(function(event){
+					//释放后的操作
+					eX = event.pageX;
+					eY = event.pageY;
+					if( (eX-dx) > 0 )
+					{
+						alert('drag right');	
+					}
+					else if( (eX-dx) < 0 )
+					{
+						alert('drag left');	
+					}
+			});
+	}
+		
+</script>
+
+</body>
+</html>

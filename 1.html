@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+	function checkOptions()
+	{
+		var cbs = document.getElementsByName("checkbox");
+		if( !checkIf2selected(cbs)){// 单个，选中
+ 		  alert("select two options please");
+		}else
+		{
+		  var hash = new Array(2); 
+		  var j = 0 ;
+	 	  for(var i = 0; i < cbs.length; i++)
+	   	  {
+ 		      if(cbs[i].checked)
+		      {
+				 hash[j] = cbs[i].value;
+				 alert( hash[j] );
+				 j++;
+			  }
+  	 	  }
+		  //make the link
+		  var link = document.getElementById("download");
+		  link.style.display="block";
+		  link.href="/gitweb/?p=$project;a=dl_patch;h1="+hash[0]+";h2="+hash[1];
+        }
+	}
+	function checkIf2selected(e)
+	{
+		var j = 0 ;
+		for(var i = 0; i < e.length; i++)
+	   	{
+ 		    if(e[i].checked)
+		    {
+			   j++ ; 
+			}
+  	 	}
+		return j==2 ? true : false ; 
+	}
+
+</script>
+</head>
+<a href="2.html">2</a>
+<body>
+<div class="group">
+  <input type="checkbox" name="checkbox" id="checkbox" value="test1" />
+  <input type="checkbox" name="checkbox" id="checkbox" value="test2"  />
+  <input type="checkbox" name="checkbox" id="checkbox"  value="test3" />
+  <input type="checkbox" name="checkbox" id="checkbox"  value="test4" />
+  <a href="#" id="ok" onclick="checkOptions();">ok</a>
+  <a href="#" id="download" style="display:none;">download</a>
+  <input name="button" type="button" id="button" value="button" />
+   </div>
+</body>
+</html>
