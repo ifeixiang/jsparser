@@ -2,13 +2,30 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>一个tab面板</title>
+<title>File Parser</title>
+<link href="common.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<nav class="nav"> 
+  <!--<h1 class="alignLeft">Tools</h1>-->
+  <ul>
+    <li><a href="#" onClick="forFubang();">For Fubang</a></li>
+    <li><a href="#" onClick="cppParser();">C++ Parser</a></li>
+  </ul>
+</nav>
+<div class="wrapper">
+
   <textarea name="" id="source" ondrop="dropFile(event)" ondragenter="return false;" ondragover="return false;" ></textarea>
- <textarea name="" id="result"></textarea>
-<script type="text/javascript" src="fileParser.js"></script>	
+  <textarea name="" id="result"></textarea>
+
+</div>
+<script type="text/javascript" src="fileParser.js"></script> 
+<script type="text/javascript" src="scripts/shCore.js"></script> 
+<script type="text/javascript" src="scripts/shBrushJScript.js"></script>
+<link type="text/css" rel="stylesheet" href="styles/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script> 
 <script type="text/javascript">	
+
          function dropFile(e)
 		 {
 			 e.preventDefault(); 
@@ -29,30 +46,59 @@
 		 {
 			 var fileString = event.target.result; 
 			 document.getElementById("source").innerHTML = fileString;
-			 
-			 parseFile(fileString,"result"); 
 		 }
 		 
 </script>
-
 <style type="text/css">
+    .wrapper
+	{
+		width:90%;
+		margin:0 auto;
+		clear:both;
+	}
 	#source,#result
 	{
 		height:600px;
 		float:left;
 		margin:10px;
+		padding:10px;
 		width:45%;
-		overflow:scroll;
+		border:10px dashed #CCC;
+		box-shadow:1px 1px 5px 1px rgba(0,0,0,.4);
+	}	
+	#result{
+		border-color:#c4fff2;
 	}
-	#source
+	.nav
 	{
-		border:1px solid #C30;
+		width:50%;
+		margin:5px auto;
+		padding:10px;
+		box-shadow:1px 1px 5px 1px rgba(0,0,0,.4);
+		border:4px dashed #CCC;
+		text-decoration:none;
+		list-style:none;
+		height:30px;
 	}
-	#result
+	.nav ul{float:left; margin:0 auto;}
+	.nav li
 	{
-		border:1px solid #0C6;
+		display:block;
+		padding:4px;
+		margin:0 4px;
+		width:100px;
+		float:left;
+		text-align:center;
+		border:1px solid #ccc;
+		box-shadow:1px 1px 5px 1px rgba(0,0,0,.2);
+		-webkit-transition:All 1s ease;
+		-webkit-transform:scale(1) rotate(-12deg);
+	}
+	.nav li:hover
+	{
+		-webkit-transition:All 1s ease;
+		-webkit-transform:scale(1.2);
 	}
 </style>
-<a href="" target="_new"
 </body>
 </html>
